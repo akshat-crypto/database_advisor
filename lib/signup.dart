@@ -3,101 +3,101 @@ import 'package:databaseapp/signin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key key}) : super(key: key);
+// class SignUp extends StatefulWidget {
+//   const SignUp({Key key}) : super(key: key);
 
-  @override
-  _SignUpState createState() => _SignUpState();
-}
+//   @override
+//   _SignUpState createState() => _SignUpState();
+// }
 
-class _SignUpState extends State<SignUp> {
-  TextEditingController _email = new TextEditingController();
-  TextEditingController _username = new TextEditingController();
-  TextEditingController _password = new TextEditingController();
+// class _SignUpState extends State<SignUp> {
+//   TextEditingController _email = new TextEditingController();
+//   TextEditingController _username = new TextEditingController();
+//   TextEditingController _password = new TextEditingController();
 
-  Future<void> signUp() async {
-    try {
-      await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-        email: _email.text,
-        password: _password.text,
-      )
-          .then((value) {
-        FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _email.text,
-          password: _password.text,
-        );
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
-      });
-    } catch (e) {
-      print(e);
-    }
-  }
+//   Future<void> signUp() async {
+//     try {
+//       await FirebaseAuth.instance
+//           .createUserWithEmailAndPassword(
+//         email: _email.text,
+//         password: _password.text,
+//       )
+//           .then((value) {
+//         FirebaseAuth.instance.signInWithEmailAndPassword(
+//           email: _email.text,
+//           password: _password.text,
+//         );
+//         Navigator.pushReplacement(
+//             context, MaterialPageRoute(builder: (context) => HomePage()));
+//       });
+//     } catch (e) {
+//       print(e);
+//     }
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: TextFormField(
-                  controller: _username,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: "Enter UserName",
-                    hintText: "Username",
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: TextFormField(
-                  controller: _email,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.email),
-                    labelText: "Enter Email",
-                    hintText: "Email",
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: TextFormField(
-                  obscureText: true,
-                  controller: _password,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.lock),
-                    labelText: "Enter Password",
-                    hintText: "Password",
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: MaterialButton(
-                onPressed: () => {signUp()},
-                child: Text("Submit"),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Padding(
+//               padding: const EdgeInsets.all(8.0),
+//               child: Container(
+//                 padding: EdgeInsets.all(10),
+//                 child: TextFormField(
+//                   controller: _username,
+//                   decoration: InputDecoration(
+//                     icon: Icon(Icons.person),
+//                     labelText: "Enter UserName",
+//                     hintText: "Username",
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(8.0),
+//               child: Container(
+//                 padding: EdgeInsets.all(10),
+//                 child: TextFormField(
+//                   controller: _email,
+//                   decoration: InputDecoration(
+//                     icon: Icon(Icons.email),
+//                     labelText: "Enter Email",
+//                     hintText: "Email",
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(8.0),
+//               child: Container(
+//                 padding: EdgeInsets.all(10),
+//                 child: TextFormField(
+//                   obscureText: true,
+//                   controller: _password,
+//                   decoration: InputDecoration(
+//                     icon: Icon(Icons.lock),
+//                     labelText: "Enter Password",
+//                     hintText: "Password",
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(8.0),
+//               child: MaterialButton(
+//                 onPressed: () => {signUp()},
+//                 child: Text("Submit"),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({Key key}) : super(key: key);
